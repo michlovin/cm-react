@@ -16,6 +16,8 @@ export default function App() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        const movies = Object.values(res);
+        setMovies(movies);
       });
   }, []);
 
@@ -26,6 +28,13 @@ export default function App() {
       <button onClick={() => setCount(count + 1)}>Plus 1</button>
 
       <p>{count}</p>
+
+      <h1>Movies</h1>
+      <ul>
+        {movies.map((movie) => (
+          <li>{movie.title}</li>
+        ))}
+      </ul>
     </div>
   );
 }
