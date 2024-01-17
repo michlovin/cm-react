@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import { useEffect, useState } from "react";
 
-function App() {
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  // useEffect(() => {
+
+  //   console.log("Hello");
+
+  // }, []);
+
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch("https://ghibliapi.dev");
+    then((res) => res.json()).then((res) => {
+      console.log(res);
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hello CodeSandbox</h1>
+
+      <button onClick={() => setCount(count + 1)}>Plus 1</button>
+
+      <p>{count}</p>
     </div>
   );
 }
-
-export default App;
