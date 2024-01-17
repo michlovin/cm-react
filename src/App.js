@@ -49,12 +49,20 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const currentScrool = document.getElementById.scrollTop;
-  });
+    function fetchScroll() {
+      const currentScroll = document.documentElement.scrollTop;
+      console.log(currentScroll);
+    }
+    document.addEventListener("scroll", fetchScroll);
+
+    return () => {
+      document.removeEventListener("scroll", fetchScroll);
+    };
+  }, []);
 
   return (
     <div>
-      <h1>Hello CodeSandbox</h1>
+      <h1>Counting</h1>
 
       <button onClick={() => setCount(count + 1)}>Plus 1</button>
 
