@@ -1,4 +1,3 @@
-import "./styles.css";
 import { useEffect, useState } from "react";
 
 export default function App() {
@@ -13,10 +12,11 @@ export default function App() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch("https://ghibliapi.dev");
-    then((res) => res.json()).then((res) => {
-      console.log(res);
-    });
+    fetch("https://ghibliapi.dev")
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
   }, []);
 
   return (
