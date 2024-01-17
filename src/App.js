@@ -43,10 +43,14 @@ export default function App() {
 
   const [time, setTime] = useState(new Date());
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       setTime(new Date());
     }, 1000);
   }, []);
+
+  useEffect(() => {
+    const currentScrool = document.getElementById.scrollTop;
+  });
 
   return (
     <div>
