@@ -12,7 +12,7 @@ export default function App() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch("https://ghibliapi.dev")
+    fetch("https://ghibliapi.vercel.app/films")
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
