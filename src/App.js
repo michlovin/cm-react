@@ -30,14 +30,15 @@ export default function App() {
 
   //create a function to show and hide a word the use it with an or statement on the inpput
 
+  const handleCount = (event) => {
+    setCount(+event.target.value);
+  };
+
   const handleChange = (event) => {
     let value = event.target.value;
-
     let nameMood = event.target.name;
 
     let wordName = event.target.word;
-
-    setCount(+event.target.value);
 
     setNameMood((prevalue) => {
       return {
@@ -62,18 +63,12 @@ export default function App() {
         <h1>Hello</h1>
 
         <h2>Start clicking to see some magic happen!</h2>
-
-        {/* <button onClick={subtract}>&lt; less than</button>
-
-        <span>{count}</span>
-
-        <button onClick={add}>&gt; greater than</button> */}
       </div>
 
       <div className="container">
         <button onClick={subtract}>&lt; less than</button>
 
-        <input type="number" value={count} onchange={handleChange}></input>
+        <input type="number" value={count} onChange={handleCount}></input>
 
         <button onClick={add}>&gt; greater than</button>
       </div>
@@ -83,7 +78,10 @@ export default function App() {
           <div>
             <h1>
               Hello <span style={{ color: "red" }}>{nameMood.name} </span>
-              <span> {wordName.word}</span>
+              <span hidden={nameMood.mood !== "" ? null : "is"}>
+                {" "}
+                {wordName.word} is{" "}
+              </span>
               <span style={{ color: "green" }}>{nameMood.mood}</span>
             </h1>
             Hey
@@ -112,3 +110,4 @@ export default function App() {
     </div>
   );
 }
+// button that sets state to emply state on click to give it set value to starting set values
