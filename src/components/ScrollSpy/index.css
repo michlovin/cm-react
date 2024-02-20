@@ -2,8 +2,10 @@
   margin-top: 50vh;
   opacity: 0;
   font-size: 9px;
+  font-family: monospace;
   transform: translateY(100px);
   transition: all 0.3s;
+  width: 80%;
 }
 .scroll-spy p.visible {
   opacity: 1;

@@ -1,0 +1,81 @@
+.nutty-button {
+  background: linear-gradient(
+    135deg,
+    #ff00ff,
+    #00ff00,
+    #0000ff,
+    #ffff00,
+    #ff0000
+  ); /* Colorful gradient */
+  color: #fff;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Arial Black", Gadget, sans-serif;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  outline: none;
+  animation: pulse 2s infinite alternate; /* Crazy pulsating animation */
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.nutty-button:hover {
+  transform: rotateY(180deg) rotateX(180deg) rotateZ(180deg); /* Crazy rotation */
+  color: #ffff00; /* Yellow on hover */
+}
+
+.unhinged-button {
+  background: repeating-radial-gradient(
+    circle,
+    #ff0000,
+    #ffcc00 10%,
+    #ff00ff 20%
+  ); /* Wild gradient */
+  color: #fff;
+  padding: 30px 60px;
+  border: 3px dashed #00ff00; /* Dashed green border */
+  border-radius: 10% 20% 30% 40% / 40% 30% 20% 10%; /* Uneven border radius */
+  cursor: pointer;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Impact", sans-serif; /* Bold and impactful font */
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Glowing text */
+  box-shadow:
+    0 0 30px rgba(0, 255, 255, 0.5),
+    inset 0 0 20px rgba(255, 0, 255, 0.5); /* Crazy box shadow */
+  outline: none;
+  animation: shake 0.5s infinite alternate; /* Unhinged shaking animation */
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+@keyframes shake {
+  from {
+    transform: translateX(-5px);
+  }
+  to {
+    transform: translateX(5px);
+  }
+}
+
+.unhinged-button:hover {
+  transform: rotate(360deg) scale(1.2); /* Wild rotation and scaling */
+  color: #00ffff; /* Light blue on hover */
+}
