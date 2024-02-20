@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import "./index.css";
 
 export default () => {
   const ref = useRef([]);
