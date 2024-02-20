@@ -1,5 +1,5 @@
 
-If the scroll spy does not work just refresh the page.
+If the scroll spy does not work for challenge 3 just refresh the page.
 
 
 # Getting Started with Create React App
