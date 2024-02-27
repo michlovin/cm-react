@@ -1,21 +1,6 @@
 import { useReducer } from "react";
+import { reducer, actions } from "./store/reducer";
 import "./App.css";
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "UPDATE_VALUES":
-      return {
-        ...state,
-        ...action.payload,
-      };
-    case "SET_VALUES":
-      return {
-        ...action.payload,
-      };
-    default:
-      return state;
-  }
-}
 
 const initialState = {
   fname: "",
@@ -32,7 +17,7 @@ export default function App() {
 
   function updateValues(event) {
     dispatch({
-      type: "UPDATE_VALUES",
+      type: actions.UPDATE_VALUES,
       payload: { [event.target.id]: event.target.value },
     });
   }
@@ -41,11 +26,20 @@ export default function App() {
     event.preventDefault();
     alert(JSON.stringify(values, null, 2));
   }
+
+  function handleReset(event) {
+    event.preventDefault();
+    dispatch({
+      type: actions.SET,
+      payload: initialState,
+    });
+  }
+
   return (
     <>
       <div className="App">
         <h1>Pet Adoption Form</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} onReset={handleReset}>
           <label htmlfor="fname" values={values.fname}>
             First name:
           </label>
@@ -224,6 +218,7 @@ export default function App() {
           </fieldset>
           <br />
           <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
         </form>
       </div>
       ;
