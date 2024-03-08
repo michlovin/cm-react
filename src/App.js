@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { useState, useEffect } from "react";
+import Cart from "./components/cart";
+import Products from "./components/products";
+import { Provider as ShoppingCartProvider } from "./context/shoppingCart";
+//useContext is a helper function that all  ows us to use context in a functional component.
+//passes around info with out drilling down into the component tree.
 function App() {
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+
+  console.log(cart, "CART");
+  console.log(products, "PRODUCTS");
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((res) => setProducts(res));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ShoppingCartProvider>
+      <div className="App">
+        <Products products={products} />
+        <hr />
+        <Cart />
+      </div>
+    </ShoppingCartProvider>
   );
 }
 
